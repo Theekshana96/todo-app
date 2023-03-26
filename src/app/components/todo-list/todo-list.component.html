@@ -1,0 +1,59 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <br/><br/>
+            <h2>Create new task</h2>
+            <hr>
+
+            <div class="form-group">
+                <label>Task name</label>
+                <input class="form-control" type="text" name="taskName" [(ngModel)]="taskName">
+            </div>
+
+            <div class="form-group">
+                <label>Status</label>
+                <select class="form-control" name="taskStatus" [(ngModel)]="taskStatus">
+                    <option value="pending">pending</option>
+                    <option value="ongoing">ongoing</option>
+                    <option value="completed">completed</option>
+                </select>
+            </div>
+            <br/>
+            <button class="btn btn-primary" (click)="addTask()">
+                Add task
+            </button>
+
+        </div>
+        <div class="col-md-8">
+            <br/><br/>
+            <h2>My todo list</h2>
+            <hr>
+            <table class="table table-striped">
+                <thead class="thead-dark">
+                  <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Task</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let task of myTaskList; let i = index">
+                    <td>{{i+1}}</td>
+                    <td>{{task.name}}</td>
+                    <td>{{task.status}}</td>
+                    <td>
+                        <button class="btn btn-info btn-sm">
+                            Edit
+                        </button>
+                        &nbsp;&nbsp;
+                        <button class="btn btn-danger btn-sm">
+                            Delete
+                        </button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+        </div>
+    </div>
+</div>
