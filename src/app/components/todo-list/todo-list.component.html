@@ -19,9 +19,11 @@
                 </select>
             </div>
             <br/>
-            <button class="btn btn-primary" (click)="addTask()">
+            <button class="btn btn-primary" *ngIf="!editMode" (click)="addTask()">
                 Add task
             </button>
+
+            <button class="btn btn-warning pull-right" *ngIf="editMode" (click)="updateTask()">Update Task</button>
 
         </div>
         <div class="col-md-8">
@@ -43,11 +45,11 @@
                     <td>{{task.name}}</td>
                     <td>{{task.status}}</td>
                     <td>
-                        <button class="btn btn-info btn-sm">
+                        <button class="btn btn-info btn-sm" (click)="editTask(task)">
                             Edit
                         </button>
                         &nbsp;&nbsp;
-                        <button class="btn btn-danger btn-sm">
+                        <button class="btn btn-danger btn-sm" (click)="deleteTask(task._id)">
                             Delete
                         </button>
                     </td>

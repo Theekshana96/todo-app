@@ -19,4 +19,12 @@ export class TodoListService {
   addTask(newTask:any){
     return this.http.post(this.apiEndPoint + '/tasks',newTask);
   }
+
+  updateTask(updatedTask:any){
+    return this.http.put(this.apiEndPoint + '/tasks/'+updatedTask._id,updatedTask);
+  }
+
+  deleteTask(taskId:any){
+    return this.http.delete(this.apiEndPoint + '/tasks/'+taskId);
+  }
 }
